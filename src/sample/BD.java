@@ -1,7 +1,9 @@
 package sample;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 import java.sql.*;
+import java.util.Optional;
 
 import static sample.Controller.MySQLConnection;
 
@@ -99,21 +101,9 @@ class DBConnection {
                 etatname = true;
             }
 
-            if(!etatname){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("DATA Information");
-                alert.setHeaderText("Your name is incorrect");
-                alert.setContentText("Press OK to continue");
-                alert.showAndWait();
-            }
 
         } catch (Exception exception) {
-
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("DATA Information");
-            alert.setHeaderText("Your error is : " + exception);
-            alert.setContentText("Press OK to continue");
-            alert.showAndWait();
+            System.out.println(exception);
         }
 
         return etatname;

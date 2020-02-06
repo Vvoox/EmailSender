@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Optional;
 
 
-
 public class Controller {
         public static DriverManager MySQLConnection;
         public static List<String> EmailList = new ArrayList<>();
@@ -112,8 +111,7 @@ public class Controller {
 
                         Optional<ButtonType> result = alert.showAndWait();
                         if (result.get() == ButtonType.OK) {
-                                stage.close();
-                                home();
+                                alert.close();
                         } else {
                                 alert.close();
 
@@ -282,7 +280,7 @@ public class Controller {
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK) {
-                        primaryStage.close();
+                        alert.close();
                 } else {
                         alert.close();
 
