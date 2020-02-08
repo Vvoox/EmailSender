@@ -1,7 +1,10 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -12,13 +15,15 @@ import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.*;
+import java.net.URL;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 
-public class Controller {
+public class Controller implements Initializable {
         public static DriverManager MySQLConnection;
         public static List<String> EmailList = new ArrayList<>();
 
@@ -26,6 +31,8 @@ public class Controller {
         private javafx.scene.control.Button closeButton;
         @FXML
         private javafx.scene.control.Button insert;
+        @FXML
+        private javafx.scene.control.Button yourfile;
         @FXML
         private javafx.scene.control.TextArea emailslist;
         @FXML
@@ -45,6 +52,8 @@ public class Controller {
         @FXML
         private javafx.scene.control.TextField nm;
         @FXML
+        private javafx.scene.control.ComboBox Cb ;
+        @FXML
         private javafx.scene.control.TextField em;
         @FXML
         private javafx.scene.control.PasswordField ps;
@@ -53,6 +62,9 @@ public class Controller {
 
         static Stage primaryStage = new Stage();
         static String Name = "";
+        ObservableList<String> questions = FXCollections.observableArrayList("YES","NO");
+        static String sharedFile;
+        static boolean fileStatus=false;
 
 
         private void closelastButtonAction(){
@@ -259,6 +271,8 @@ public class Controller {
 //                JavaEmail.to=emailslist.getText();
                 JavaEmail.subject = subjectsender.getText();
                 JavaEmail.text=message.getText();
+                JavaEmail.file=sharedFile;
+
 
                 //
                 String[] tab = emailslist.getText().split("\n");
@@ -293,7 +307,59 @@ public class Controller {
                 closelastButtonAction();
                 start();
         }
+        public void ifsendingFile(){
+                if(Cb.getValue()=="YES"){
+                        yourfile.setDisable(false);
+                        fileStatus=true;
+                }
+                if(Cb.getValue()=="NO"){
+                        yourfile.setDisable(true);
+                        fileStatus=false;
+
+                }
+
+        }
+        public void sendingFile(){
+
+                FileChooser fileChooser = new FileChooser();
+                Stage stage1 = (Stage) insert.getScene().getWindow();
+                File selectedFile = fileChooser.showOpenDialog(stage1);
+                String lines="";
+                String line;
+                sharedFile=selectedFile.getPath();
+                System.out.println(sharedFile);
+//                try {
+//                        FileReader fileReader = new FileReader(selectedFile);
+//
+//                        BufferedReader bufferedReader = new BufferedReader(fileReader);
+//
+//                        while ((line = bufferedReader.readLine()) != null) {
+//
+//                                lines += line;
+//                                EmailList.add(line);
+//                                lines += "\n";
+//
+//
+//
+//
+//                        }
+//                        emailslist.setText(lines);
+//                        System.out.println(EmailList);
+//
+//                        //split(lines);
+//                } catch (FileNotFoundException ex) {
+//                        System.out.println(
+//                                "Unable to open file '");
+//                } catch (IOException e) {
+//                        e.printStackTrace();
+//                }
+        }
 
 
+        @Override
+        public void initialize(URL url, ResourceBundle resourceBundle) {
 
+                Cb.setItems(questions);
+                yourfile.setDisable(true);
+        }
 }

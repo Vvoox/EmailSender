@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <GridPane id="pane" alignment="center" hgap="10" stylesheets="@Style/Darktheme.css" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
@@ -11,24 +12,30 @@
         <RowConstraints />
     </rowConstraints>
     <children>
-        <Pane id="pane" prefHeight="815.0" prefWidth="1274.0" stylesheets="@Style/Darktheme.css">
+        <Pane id="pane" prefHeight="877.0" prefWidth="1274.0" stylesheets="@Style/Darktheme.css">
          <children>
-            <Label id="text" layoutX="417.0" layoutY="30.0" stylesheets="@Style/Darktheme.css" text="Welcome in Email Sender" />
-            <Label id="text" layoutX="364.0" layoutY="61.0" stylesheets="@Style/Darktheme.css" text="Please insert your information bellow" />
-            <TextArea fx:id="emailslist" layoutX="672.0" layoutY="165.0" prefHeight="200.0" prefWidth="356.0" promptText="Your Emails" />
-            <Label id="text" layoutX="672.0" layoutY="128.0" prefHeight="31.0" prefWidth="154.0" stylesheets="@Style/Darktheme.css" text="Destinations :" />
-            <Label id="text" layoutX="680.0" layoutY="376.0" stylesheets="@Style/Darktheme.css" text="Or your can insert an Emails list file" />
-            <Button fx:id="insert" layoutX="763.0" layoutY="421.0" mnemonicParsing="false" onAction="#insertedFile" prefHeight="46.0" prefWidth="173.0" text="Insert" />
-            <TextArea fx:id="message" layoutX="83.0" layoutY="506.0" prefHeight="128.0" prefWidth="948.0" promptText="Your Message" />
-            <Label id="text" layoutX="83.0" layoutY="467.0" prefHeight="31.0" prefWidth="102.0" stylesheets="@Style/Darktheme.css" text="Message :" />
-            <Button layoutX="83.0" layoutY="656.0" mnemonicParsing="false" onAction="#send" onMouseClicked="#justWait" prefHeight="46.0" prefWidth="414.0" text="SEND" />
-            <Button fx:id="closeButton" layoutX="618.0" layoutY="656.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="46.0" prefWidth="414.0" text="Cancel" />
+            <Label id="text" layoutX="402.0" layoutY="44.0" stylesheets="@Style/Darktheme.css" text="Welcome in Email Sender" />
+            <TextArea fx:id="emailslist" layoutX="79.0" layoutY="386.0" prefHeight="256.0" prefWidth="373.0" promptText="Your emails or your can insert an Emails list file" />
+            <Label id="text" layoutX="83.0" layoutY="348.0" prefHeight="31.0" prefWidth="154.0" stylesheets="@Style/Darktheme.css" text="Send to :" />
+            <Button fx:id="insert" layoutX="79.0" layoutY="666.0" mnemonicParsing="false" onAction="#insertedFile" prefHeight="56.0" prefWidth="373.0" text="Insert" />
+            <TextArea fx:id="message" layoutX="650.0" layoutY="280.0" prefHeight="182.0" prefWidth="408.0" promptText="Your Message" />
+            <Label id="text" layoutX="650.0" layoutY="242.0" prefHeight="31.0" prefWidth="102.0" stylesheets="@Style/Darktheme.css" text="Message :" />
+            <Button layoutX="650.0" layoutY="662.0" mnemonicParsing="false" onAction="#send" prefHeight="63.0" prefWidth="203.0" text="SEND" />
+            <Button fx:id="closeButton" layoutX="874.0" layoutY="662.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="63.0" prefWidth="185.0" text="Cancel" />
             <TextField fx:id="emailsender" layoutX="83.0" layoutY="168.0" prefHeight="46.0" prefWidth="373.0" promptText="Your gmail" />
-            <PasswordField fx:id="passwordsender" layoutX="83.0" layoutY="299.0" prefHeight="54.0" prefWidth="373.0" promptText="Your Password" />
+            <PasswordField fx:id="passwordsender" layoutX="83.0" layoutY="265.0" prefHeight="46.0" prefWidth="373.0" promptText="Your Password" />
             <Label id="text" layoutX="83.0" layoutY="131.0" stylesheets="@Style/Darktheme.css" text="Email Sender" />
-            <Label id="text" layoutX="83.0" layoutY="265.0" stylesheets="@Style/Darktheme.css" text="Password Sender" />
-            <TextField fx:id="subjectsender" layoutX="83.0" layoutY="408.0" prefHeight="46.0" prefWidth="373.0" promptText="You Subject" />
-            <Label id="text" layoutX="83.0" layoutY="376.0" stylesheets="@Style/Darktheme.css" text="Subject :" />
+            <Label id="text" layoutX="85.0" layoutY="232.0" stylesheets="@Style/Darktheme.css" text="Password Sender" />
+            <TextField fx:id="subjectsender" layoutX="650.0" layoutY="168.0" prefHeight="46.0" prefWidth="408.0" promptText="You Subject" />
+            <Label id="text" layoutX="650.0" layoutY="131.0" stylesheets="@Style/Darktheme.css" text="Subject :" />
+            <Separator layoutX="546.0" layoutY="166.0" orientation="VERTICAL" prefHeight="561.0" prefWidth="23.0" />
+            <ComboBox fx:id="Cb" layoutX="650.0" layoutY="503.0" onAction="#ifsendingFile" prefHeight="26.0" prefWidth="408.0" promptText="You want to include file" />
+            <ImageView fitHeight="104.0" fitWidth="111.0" layoutX="674.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Image/2.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="yourfile" layoutX="650.0" layoutY="570.0" mnemonicParsing="false" onAction="#sendingFile" prefHeight="46.0" prefWidth="408.0" text="Your file" />
          </children></Pane>
     </children>
 </GridPane>

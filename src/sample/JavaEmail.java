@@ -5,6 +5,7 @@ import javafx.scene.control.ButtonType;
 
 import javax.mail.*;
 import javax.mail.internet.*;
+import java.io.File;
 import java.util.*;
 
 public class JavaEmail {
@@ -21,6 +22,7 @@ public class JavaEmail {
     static String subject="";
     static String text = "";
     static String OUTPUT = "";
+    static String file ;
 
 
     public JavaEmail()
@@ -48,6 +50,8 @@ public class JavaEmail {
             msg.setSubject(m_subject);
             msg.setFrom(new InternetAddress(d_email));
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(m_to));
+            if(Controller.fileStatus){
+            msg.setFileName(file);}
             Transport.send(msg);
             OUTPUT+="Sending to "+m_to+"... is DONE\n";
 
