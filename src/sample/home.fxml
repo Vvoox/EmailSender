@@ -29,7 +29,7 @@
             <TextField fx:id="subjectsender" layoutX="650.0" layoutY="168.0" prefHeight="46.0" prefWidth="408.0" promptText="You Subject" />
             <Label id="text" layoutX="650.0" layoutY="131.0" stylesheets="@Style/Darktheme.css" text="Subject :" />
             <Separator layoutX="546.0" layoutY="166.0" orientation="VERTICAL" prefHeight="561.0" prefWidth="23.0" />
-            <ComboBox fx:id="Cb" layoutX="650.0" layoutY="503.0" onAction="#ifsendingFile" prefHeight="26.0" prefWidth="408.0" promptText="You want to include file" />
+            <ComboBox fx:id="Cb" layoutX="650.0" layoutY="498.0" onAction="#ifsendingFile" prefHeight="31.0" prefWidth="408.0" promptText="You want to include file" />
             <ImageView fitHeight="104.0" fitWidth="111.0" layoutX="674.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Image/2.png" />
