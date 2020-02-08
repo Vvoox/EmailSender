@@ -21,7 +21,7 @@ public class Main extends Application {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         Image icon = new Image(Main.class.getResourceAsStream("Image/1.png"));
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("EmailSender");

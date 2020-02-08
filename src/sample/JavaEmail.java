@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.*;
@@ -44,19 +47,29 @@ public class JavaEmail {
             msg.setText(m_text);
             msg.setSubject(m_subject);
             msg.setFrom(new InternetAddress(d_email));
-            int n =Controller.EmailList.size();
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(m_to));
             Transport.send(msg);
             OUTPUT+="Sending to "+m_to+"... is DONE\n";
-
-
 
         }
         catch (Exception mex)
         {
             mex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(String.valueOf(mex));
+            alert.setContentText("Check your Username & Password and try again !");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                alert.close();
+            } else {
+                alert.close();
+
+            }
         }
     }
+
 
     private class SMTPAuthenticator extends javax.mail.Authenticator
     {
