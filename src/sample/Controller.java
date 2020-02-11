@@ -52,7 +52,7 @@ public class Controller implements Initializable {
         @FXML
         private javafx.scene.control.TextField nm;
         @FXML
-        private javafx.scene.control.ComboBox Cb ;
+        public javafx.scene.control.ComboBox Cb ;
         @FXML
         private javafx.scene.control.TextField em;
         @FXML
@@ -359,7 +359,7 @@ public class Controller implements Initializable {
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
 
-                Cb.setItems(questions);
-                yourfile.setDisable(true);
+//                Cb.setItems(questions);
+//                yourfile.setDisable(true);
         }
 }
