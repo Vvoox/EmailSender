@@ -24,7 +24,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Image icon = new Image(Main.class.getResourceAsStream("Image/1.png"));
         primaryStage.getIcons().add(icon);
-        primaryStage.setTitle("EmailSender");
+        primaryStage.setTitle("Email Sender");
         primaryStage.setScene(new Scene(root, screenWidth, screenHeight));
         primaryStage.show();
     }
